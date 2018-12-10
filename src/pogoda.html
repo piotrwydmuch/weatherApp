@@ -5,16 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="pogoda.js"></script>
+    <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
 </head>
 <body>
-    Podaj miasto
-    <input type="text" id="miasto" value="">
-<button onclick="pobierzPogode()">Sprawdź</button>
+    <main>
+        <div class="inputs">
+        <p class="podajMiasto">Choose a city: <input type="text" id="miasto" value=""></p>
+            <button id="szukaj" type="submit" onclick="pobierzPogode()">Show the weather</button>
+            <button type="submit" onClick="refreshPage()">Refresh Button</button>
+        </div>
+        <div id="boxesAndMaps"></div>
+            <div class="content">
+                <div class="details-box">
+                    <p class="info-o-miescie">Current weather for: <span id="demo"></span></p>
+                    <div class="details-data">
+                        <span id="temp"></span><br>
+                        <span id="humidity"></span><br>
+                        <span id="pressure"></span> 
+                    </div>
+                </div>
+                <div class="obrazek-box">
+                    <img id="obrazek">
+                    <p id="opisPogody"></p>
+                </div>
+            </div>
+            <div id="map"></div>
+        </div>
 
-    <p>Sprawdzasz pogodę dla: <span id="demo"></span></p>
-    <span id="temp"></span><br>
-    <span id="humidity"></span><br>
-    <span id="pressure"></span>
+    </main>
 </body>
 </html>
